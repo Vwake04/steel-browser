@@ -35,11 +35,11 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
       python-is-python3 \
       xvfb
 
-COPY --link package-lock.json package.json ./
+COPY --link api/package-lock.json api/package.json ./
 
 RUN npm ci --include=dev
 
-COPY --link . .
+COPY --link api .
 
 RUN npm run build
 
@@ -92,7 +92,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     && rm -rf chromedriver.zip /tmp/chromedriver-linux64 \
     && chmod +x /selenium/driver/chromedriver
 
-COPY --chmod=755 ./api/entrypoint.sh /app/entrypoint.sh
+COPY --chmod=755 api/entrypoint.sh /app/entrypoint.sh
 
 EXPOSE 3000 9223
 
