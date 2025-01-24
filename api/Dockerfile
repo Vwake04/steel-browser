@@ -92,7 +92,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     && rm -rf chromedriver.zip /tmp/chromedriver-linux64 \
     && chmod +x /selenium/driver/chromedriver
 
-COPY --chmod=755 entrypoint.sh /app/entrypoint.sh
+COPY --chmod=755 ./api/entrypoint.sh /app/entrypoint.sh
 
 EXPOSE 3000 9223
 
