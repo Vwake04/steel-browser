@@ -1,5 +1,5 @@
 services:
-  - type: api
+  - type: web
     name: steel-browser
     env: docker
     dockerfilePath: ./api/Dockerfile
